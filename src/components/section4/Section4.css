@@ -1,133 +1,107 @@
-/* Base styles */
 :root {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --highlight-color: #ff00ff; /* Adjusted color to match image more closely */
-  --font-family: 'Inter', sans-serif; /* Example font, adjust as needed */
-  --item-border-color: #1a1a1a;
-  --marquee-speed: 20s;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-family);
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  overflow-x: hidden;
+  --bg-black: #000000;
+  --text-white: #ffffff;
+  --accent-purple: #d946ef; /* Matches the "UzOFin" color */
+  --accent-blue: #38bdf8;   /* Matches the card description color */
+  --border-gray: rgba(255, 255, 255, 0.1);
+  --speed: 30s;
 }
 
 .why-uzofin {
-  padding: 100px 0; /* Add padding to the top and bottom of the section */
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  padding: 80px 0;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+.why-uzofin__header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
   padding: 0 20px;
 }
 
 .why-uzofin__title {
-  font-size: 64px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
-/* .why-uzofin__title  */
-.highlight {
-  background: linear-gradient(90deg, #5eead4, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.highlight-purple {
+  color: var(--accent-purple);
 }
 
 .why-uzofin__description {
-  font-size: 18px;
+  font-size: 1.1rem;
   line-height: 1.6;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 80px;
-  color: #a0a0a0;
+  color: #94a3b8; /* Dimmer gray for subtext */
 }
 
-/* Marquee styles */
-.marquee-container {
-  overflow: hidden;
-  margin-bottom: 40px; /* Space between marquee rows */
-}
-
-.marquee {
+/* Marquee Logic */
+.marquee-wrapper {
   display: flex;
-  overflow: hidden;
-  user-select: none;
-  border: 1px solid var(--item-border-color);
-  border-radius: 8px;
-}
-
-.marquee__group {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
   gap: 20px;
-  min-width: 100%;
 }
 
-.marquee__item {
-  position: relative;
+.marquee-row {
   display: flex;
+  user-select: none;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 40px;
+  padding: 10px 0;
+  animation: scroll var(--speed) linear infinite;
+}
+
+/* Reverse direction for middle row */
+.row-2 .marquee-content {
+  animation-direction: reverse;
+}
+
+.marquee-card {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  color: #fff;
-  white-space: nowrap;
-  padding: 15px 30px;
-  border-right: 1px solid var(--item-border-color); /* Separator line between items */
+  margin-bottom: 8px;
 }
 
-.marquee__item:last-child {
-  border-right: none;
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-white);
 }
 
-.arrow {
-  font-size: 16px;
-  color: #a0a0a0;
+.card-arrow {
+  color: #64748b;
+  font-size: 1.2rem;
 }
 
-/* Row-specific marquee animations */
-.marquee--right {
-  animation: scrollRight var(--marquee-speed) linear infinite;
+.card-desc {
+  font-size: 1.1rem;
+  color: var(--accent-blue);
+  margin: 0;
+  white-space: normal; /* Allows text wrapping if card is narrow */
 }
 
-.marquee--left {
-  animation: scrollLeft var(--marquee-speed) linear infinite;
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% / 3)); }
 }
 
-@keyframes scrollRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Apply speeds based on user request */
-.row-1 .marquee {
-  --marquee-speed: 10s; /* Slower */
-}
-
-.row-2 .marquee {
-  --marquee-speed: 10s; /* Faster */
-}
-
-.row-3 .marquee {
-  --marquee-speed: 10s; /* Slowest */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .why-uzofin__title { font-size: 2.5rem; }
+  .marquee-card { width: 300px; }
 }
