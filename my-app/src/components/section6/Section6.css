@@ -1,0 +1,128 @@
+/* Container styling */
+.s6-wrapper {
+  background-color: #050505; /* Deep dark background */
+  padding: 100px 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Header styling */
+.s6-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.s6-subtitle {
+  color: #3b82f6; /* Support text blue */
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.s6-title {
+  color: white;
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0;
+  font-family: poppins, sans-serif;
+}
+
+.s6-gradient-text {
+  background: linear-gradient(90deg, #db469f, #9457e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Marquee track logic */
+.s6-marquee-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 40px 0;
+}
+
+.s6-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: s6-scroll-left 40s linear infinite;
+}
+
+@keyframes s6-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Halfway point for seamless loop */
+}
+
+/* Individual Card Styling */
+.s6-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 35px;
+  width: 350px;
+  margin-right: 25px;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.s6-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(219, 70, 159, 0.4);
+}
+
+/* --- THE ALTERNATING UP/DOWN PATTERN --- */
+.s6-card.up {
+  animation: s6-bounce-up 4s ease-in-out infinite alternate;
+}
+
+.s6-card.down {
+  animation: s6-bounce-down 4s ease-in-out infinite alternate;
+}
+
+@keyframes s6-bounce-up {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(20px); }
+}
+
+@keyframes s6-bounce-down {
+  from { transform: translateY(20px); }
+  to { transform: translateY(-20px); }
+}
+
+/* Card Content Typography */
+.s6-card-title {
+  /* background: linear-gradient(90deg, #db469f, #9457e0); */
+  background: linear-gradient(90deg, #5eead4, #3b82f6);
+  /* background: linear-gradient(90deg, #440178, #8C01FA); */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.s6-card-desc {
+  color: #d1d1d1;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.s6-card-link {
+  color: #d1d1d1;
+  font-size: 15px;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.s6-card-link:hover {
+  color: white;
+}

@@ -1,0 +1,337 @@
+/* Pixel Perfect Footer Styling */
+
+/* Make sure you're using a clean font. Inter is used here. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.api-footer {
+    background-color: #000000;
+    /* Deep black from image_2.png */
+    width: 100%;
+    color: #a1a1aa;
+    /* Light gray text for description/links */
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.api-footer::after {
+    /* Subtle glow at the very bottom */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6d28d9, #ec4899);
+    opacity: 0.2;
+}
+
+.api-footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 60px 60px 60px;
+    /* Precise padding from screenshot */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Important for responsiveness */
+    gap: 40px;
+}
+
+/* Left Section */
+.api-footer-main {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.api-footer-logo-container {
+    margin-bottom: 5px;
+}
+
+/* Reconstructing the "UzOFIN" logo */
+.logo-uzfin {
+    display: flex;
+    align-items: baseline;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: -2px;
+    margin-bottom: 2px;
+}
+
+.logo-text-base {
+    color: #ffffff;
+}
+
+.logo-uz {
+    position: relative;
+    left: -2px;
+    /* Slight offset for perfect spacing */
+}
+
+.logo-o {
+    /* This is image_4.png */
+    height: 56.62px;
+    /* Match font height */
+    width: 228px;
+    position: relative;
+    top: 5px;
+    /* Alignment adjustment */
+    margin: 0 -2px;
+    /* Pull the base text closer */
+}
+
+.logo-tagline {
+    /* This is image_3.png */
+    display: block;
+    height: auto;
+    width: 228px;
+    /* Precise width to fit */
+    margin-top: 10px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.api-footer-description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 280px;
+}
+
+/* Link Columns (Right Section) */
+.api-footer-links-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 800px;
+}
+
+.link-column {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Gradient Headings: PRODUCTS, COMPANY, LEGAL, SOCIAL */
+.gradient-heading {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+    /* background: linear-gradient(90deg, #6d28d9, #ec4899); */
+    background: linear-gradient(90deg, #5eead4, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.link-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-column a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.link-column a:hover {
+    color: #ffffff;
+}
+
+/* Social Column Details */
+.social-column {
+    margin-top: -3px;
+    /* Precise alignment adjustment */
+}
+
+.social-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.social-link-item a {
+    color: #a1a1aa;
+}
+
+/* Creating Social Icons: LinkedIn, X, Instagram, Facebook */
+/* Since I don't have these assets, I am creating them via CSS. 
+   In a production environment, you should use real assets or an icon library. */
+.social-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #18181b;
+    /* Dark icon container */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.social-icon::after {
+    /* Subtle glow */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(109, 40, 217, 0.2);
+}
+
+.social-icon-linkedin::before {
+    content: 'in';
+    color: #0077b5;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: system-ui;
+}
+
+.social-icon-x::before {
+    content: 'X';
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.social-icon-instagram::before {
+    content: 'O';
+    color: #ec4899;
+    font-size: 18px;
+    font-weight: 800;
+    font-family: serif;
+    border: 2px solid #ec4899;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.social-icon-facebook::before {
+    content: 'f';
+    color: #1877f2;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Georgia;
+    margin-left: 2px;
+}
+
+.social-icon:hover {
+    background-color: #27272a;
+}
+
+.social-icon:hover::after {
+    box-shadow: 0 0 15px rgba(109, 40, 217, 0.4);
+}
+
+/* Bottom Bar */
+.api-footer-bottom {
+    border-top: 1px solid #18181b;
+    /* Top border separating main content */
+    width: 100%;
+}
+
+.footer-bottom-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 60px 20px 60px;
+    /* Precise padding from screenshot */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: #71717a;
+}
+
+.region-selector {
+    color: #a1a1aa;
+}
+
+/* Responsive Adjustments (for pixel-perfection across devices) */
+@media (max-width: 1024px) {
+    .api-footer-container {
+        padding: 60px 40px 40px 40px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .api-footer-main {
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .logo-uzfin {
+        justify-content: center;
+    }
+
+    .logo-tagline {
+        margin: 5px auto 0 auto;
+    }
+
+    .api-footer-description {
+        max-width: 100%;
+    }
+
+    .api-footer-links-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .social-link-item {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .api-footer-container {
+        padding: 60px 20px 40px 20px;
+    }
+
+    .api-footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .social-link-item {
+        justify-content: center;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+}

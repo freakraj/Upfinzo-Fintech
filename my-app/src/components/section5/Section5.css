@@ -1,0 +1,98 @@
+/* Pixel Perfect Styling for the API Hero Section */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.api-hero-section {
+  /* The core dark background color from image_0.png */
+  background-color: #010101; 
+  height: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Positioning the asset image behind the text */
+.background-trails {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1; /* Places it under the text */
+  opacity: 0.9; /* Subtle opacity to match image_0.png blending */
+  pointer-events: none; /* Text/button elements remain clickable */
+}
+
+/* Container to handle layout over the background */
+.api-hero-container {
+  position: relative;
+  z-index: 2; /* Ensures content is layered *above* the background image */
+  max-width: 900px;
+}
+
+.api-hero-title {
+  /* Large, bold, precise font size and spacing */
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -1.5px; /* Tight spacing for a professional look */
+  margin: 0 0 24px 0;
+}
+
+/* The color gradient on the specific text */
+.gradient-text {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.api-hero-subtitle {
+  /* Subtle gray color and lighter font weight */
+  font-size: 20px;
+  color: #94a3b8;
+  margin: 0 0 44px 0;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+
+/* Pixel Perfect Button Styling */
+.api-hero-button {
+  background: #6d28d9;
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 50px; /* Perfect pill shape */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  /* Glow effect */
+  box-shadow: 0 0 20px rgba(109, 40, 217, 0.4);
+  transition: all 0.2s ease;
+}
+
+.api-hero-button:hover {
+  background: #7c3aed;
+  box-shadow: 0 0 30px rgba(109, 40, 217, 0.6);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  font-size: 18px;
+  line-height: 1;
+}

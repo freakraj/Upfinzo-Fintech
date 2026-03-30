@@ -1,0 +1,43 @@
+.section2 {
+  background-color: #000000;
+  padding: 80px 0; /* Adjust padding as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section2-content {
+  text-align: center;
+}
+
+.section2-title {
+  color: #00E5FF;
+  font-family: sans-serif; /* Replace with the actual font if known */
+  font-weight: normal;
+  font-size: 16px; /* Adjust font size based on image */
+  margin-bottom: 40px; /* Space between title and logos */
+  letter-spacing: 1px;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns for the logos */
+  gap: 30px; /* Adjust gap between logo items */
+  justify-items: center;
+  align-items: center;
+}
+
+.logo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* Adjust logo item height */
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0.8; /* Adjust logo opacity for subtle effect */
+}
