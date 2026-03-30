@@ -1,6 +1,7 @@
 import React from 'react';
 import './Section3.css';
-import spiral from "../../../assets/image/spiral-image.png";
+// import spiral from "../../../assets/image/spiral-image.png";
+import spiral from "../../assets/image/spiral-image.png";
 
 export const Section3 = () => {
   return (
