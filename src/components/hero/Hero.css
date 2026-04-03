@@ -5,14 +5,14 @@
   height: 100vh;
   width: 100%;
   background: #000000;
-  /* Deep black to blend with images */
   color: #ffffff;
-  overflow: hidden;
-  font-family: "Inter", sans-serif;
+  /* Crucial: prevents children from creating horizontal scroll */
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 /* BACKGROUND IMAGES */
@@ -131,13 +131,6 @@
 }
 
 .hero__title {
-  /* Fluid typography */
-  /* font-size: clamp(32px, 5vw, 64px);  */
-  /* font-size: 64px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  font-family: 'Poppins'; */
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -209,17 +202,83 @@
   margin: 0 -2px;
 }
 
-/* RESPONSIVE */
+/* 2. Responsive adjustments for Portrait/Mobile */
 @media (max-width: 768px) {
+  /* Prevent horizontal scroll on the body level as a safety net */
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+  }
+
   .hero__nav {
     padding: 20px;
   }
 
+  /* Hide menu or switch to hamburger if you have one */
   .hero__menu {
-    display: none;
+    display: none; 
   }
 
+  /* 3. Handle Background Images - Scale them down so they don't push width */
   .hero__bg-img {
-    width: 80%;
+    width: 100%; /* Larger percentage for mobile impact */
+    max-width: 400px; /* But capped so it doesn't overwhelm */
+    opacity: 0.5; /* Lower opacity for better text readability on small screens */
+  }
+
+  .bg-left {
+    transform: translate(-20%, -10%);
+  }
+
+  .bg-right {
+    transform: translate(20%, 10%) rotate(180deg);
+  }
+
+  /* 4. Content Scaling */
+  .hero__content {
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .hero__content__heading {
+    height: auto; /* Remove fixed height for portrait */
+    gap: 20px;
+  }
+
+  .hero__title {
+    font-size: 32px; /* Scale down text size for portrait */
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero__desc {
+    font-size: 16px;
+    margin: 15px auto;
+    max-width: 100%; /* Use full available width */
+  }
+
+  /* 5. Stack Buttons for Portrait */
+  .hero__buttons {
+    flex-direction: column; 
+    width: 100%;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .hero__buttons button {
+    width: 100%; /* Full width buttons are better for thumb-reach */
+    padding: 16px;
+  }
+}
+
+/* Extra small devices (iPhone SE / Fold) */
+@media (max-width: 380px) {
+  .hero__title {
+    font-size: 28px;
+  }
+  
+  .hero__nav-btn {
+    display: none; /* Hide nav button if space is too tight */
   }
 }

@@ -28,14 +28,9 @@ export const Hero = () => {
       <header className="hero__nav">
         <div className="hero__logo">
           <div style={{display:"flex"}}>
-            {/* <div>Uz</div>
-            <div><span>O</span></div>
-            <div>Fin</div> */}
             <img src={logoO} alt="UzOFIN O" className="header-logo" />
 
           </div>
-
-          {/* Uz<span>o</span>Fin */}
           <small>Connect. Control. Comply.</small>
         </div>
 

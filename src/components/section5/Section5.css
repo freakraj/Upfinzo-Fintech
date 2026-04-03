@@ -6,7 +6,7 @@
   /* The core dark background color from image_0.png */
   background-color: #010101; 
   height: 600px;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,4 +95,59 @@
 .arrow {
   font-size: 18px;
   line-height: 1;
+}
+
+/* ... keep your existing desktop styles above ... */
+
+@media (max-width: 768px) {
+  .api-hero-section {
+    /* Switch from fixed height to dynamic height for long text wrapping */
+    height: auto; 
+    min-height: 500px;
+    padding: 80px 24px; /* More vertical breathing room for portrait */
+    overflow: hidden; /* Strict containment */
+  }
+
+  .background-trails {
+    /* On portrait, 'cover' can sometimes zoom too much. 
+       'center' ensures the core of the asset stays visible. */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .api-hero-container {
+    width: 100%;
+    max-width: 100%; /* Ensure container doesn't exceed viewport */
+  }
+
+  .api-hero-title {
+    font-size: 36px; /* Significant reduction for portrait */
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .api-hero-subtitle {
+    font-size: 17px; /* Slightly smaller for readability */
+    margin-bottom: 36px;
+    padding: 0 10px;
+    line-height: 1.4;
+  }
+
+  .api-hero-button {
+    width: 100%; /* Full-width mobile-first action */
+    max-width: 300px; /* But don't let it get comically wide */
+    padding: 16px 20px;
+  }
+}
+
+/* Extra small devices (iPhone SE / small Androids) */
+@media (max-width: 380px) {
+  .api-hero-title {
+    font-size: 30px;
+  }
+  
+  .api-hero-subtitle {
+    font-size: 15px;
+  }
 }
